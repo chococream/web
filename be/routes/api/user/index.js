@@ -1,42 +1,23 @@
-var createError = require('http-errors')
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  const us = [
-    {
-      name: '김도현',
-      age: 20
-    },
-    {
-      name: '김지니',
-      age:27
-    }
-  ]
-  res.send({ users  : us })
-});
-
-router.get('/', function(req, res, next) {
-  res.send({users:us})
-});
-
-router.post('/', function(req, res, next) => {
-  res.send({success:true})
-});
-
-router.put('/', function(req, res, next) => {
-  res.send({success:true})
-});
-
-router.delete('/', function(req, res, next) => {
-  res.send({success:true})
-});
-
-
-
 /* GET home page. */
-router.all('*', function(req, res, next) {
-  next(createError(404,'API를 찾을 수 없습니다.'));
+router.get('/', function(req, res, next) {
+  //res.render('index', { title: 'Express' });
+  res.send({msg:'hello', a:1})
 });
+
+router.get('/q', function(req, res, next){
+  res.send({msg:'QUESTION?', a:2})
+})
+
+router.all("*", function(req, res, next){
+  next(createError(404, 'API를 찾을 수 없습니다.'));
+})
 
 module.exports = router;
