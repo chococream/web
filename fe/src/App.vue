@@ -87,10 +87,24 @@ export default {
         }
       },
       {
+        icon: 'class',
+        title: '구성',
+        to: {
+          path: '/about'
+        }
+      },
+      {
         icon: 'face',
         title: '사용자',
         to: {
-          path: '/about'
+          path: '/users'
+        }
+      },
+      {
+        icon: 'class',
+        title: 'rest',
+        to: {
+          path: '/rest'
         }
       }
       ],
