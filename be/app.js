@@ -20,9 +20,8 @@ app.use(cookieParser());
 
 app.use(cors())
 // console.log(path.join(__dirname, '../', 'fe', 'dist'))
-app.use('/api', require("./routes/api"));
+app.use('/api', require("./routes/api/test"));
 app.use(express.static(path.join(__dirname, '../', 'fe', 'dist')));
-
 
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
@@ -44,3 +43,38 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+const mongoose = require('mongoose')
+const User = require('./models/users')
+
+//const userSchema = new mongoose.Schema({
+  //name:{ type:String, default:"", unique: true, index: true},
+  //age: {type:Number, default : 1}
+//})
+//const User = mongoose.model('User', userSchema)
+//User.create({name:'하하'})
+//  .then(r=>console.log(r))
+//  .catch(e=>console.error(e))
+//User.find()
+//  .then(r=>console.log(r))
+//  .catch(e=>console.error(e))
+
+//User.updateOne({_id: '5cbd4de210647f7a8c4d3fc5'}, {$set: {age:27} })
+
+//.then(r=> {
+//  console.log(r)
+//  console.log('updated')
+//  return User.find()
+//})
+
+//.then(r=>console.log(r))
+//.catch(e=>console.error(e))
+
+//User.deleteOne({name: '하하'})
+//.then(r=>console.log(r))
+//.catch(e=>console.error(e))
+
+mongoose.connect('mongodb://localhost:27017/web',{useNewUrlParser:true}, (err)=>{
+  if(err) return console.error(err)
+  console.log('mongoose connected!')
+})
